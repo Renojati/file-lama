@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Prediksi Curah Hujan</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2c3e50, #34495e); /* Gradasi biru gelap ke abu-abu gelap */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            animation: fadeIn 1s ease-in; /* Efek masuk untuk seluruh body */
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #34495e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-out; /* Navbar masuk dari samping */
+        }
+        .navbar .title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .navbar a:hover {
+            background: #2c3e50; /* Hover effect dengan latar belakang gelap */
+            color: #ecf0f1; /* Teks terang saat hover */
+            transform: scale(1.1); /* Efek pembesaran pada hover */
+        }
+
+        /* Konten */
+        .container {
+            background: #2c3e50;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-wrap: wrap;  /* Membuat konten bisa membungkus secara fleksibel */
+            justify-content: space-around;  /* Menjaga jarak antar konten */
+            animation: fadeIn 1s ease-in forwards; /* Efek fade-in untuk seluruh konten */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+            width: 100%;  /* Membuat judul mengambil lebar penuh */
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards; /* Efek fade-in pada judul */
+        }
+
+        /* Konten Deskripsi, Kegunaan, Keunggulan */
+        .content {
+            display: flex;
+            flex-direction: row;  /* Menyusun konten secara horizontal */
+            justify-content: space-between;
+            width: 100%;
+            animation: slideIn 1s ease-out forwards; /* Animasi slide-in pada konten */
+        }
+
+        .content div {
+            flex: 1; /* Membagi ruang secara merata antar bagian */
+            margin: 0 1rem;
+            background: #34495e; /* Warna latar belakang box */
+            border-radius: 8px; /* Sudut melengkung pada box */
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Bayangan di dalam box */
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards; /* Efek fade-in pada box */
+            transition: transform 0.3s ease; /* Menambahkan transisi pada perubahan transformasi */
+        }
+
+        /* Efek saat hover pada bagian konten */
+        .content div:hover {
+            transform: translateY(-10px); /* Efek pergeseran ke atas */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* Efek bayangan yang lebih besar */
+        }
+
+        .content h2 {
+            color: #ecf0f1;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="title">Prediksi Curah Hujan</div>
+        <div class="links">
+            <a href="/kelompok">Kelompok</a>
+            <a href="/informasi">Informasi</a>
+            <a href="/aplikasi">Aplikasi</a>
+        </div>
+    </div>
+
+    <!-- Content for About -->
+    <div class="container">
+        <h1>About</h1>
+        <div class="content">
+            <div>
+                <h2>Deskripsi</h2>
+                <p>
+                    Aplikasi Prediksi Curah Hujan ini dirancang untuk memberikan prediksi mengenai kemungkinan terjadinya hujan di suatu wilayah. Menggunakan data meteorologi yang meliputi suhu, kelembapan, kecepatan angin, serta lama sinar matahari, aplikasi ini dapat memberikan informasi yang sangat berguna untuk berbagai kebutuhan.
+                </p>
+            </div>
+            <div>
+                <h2>Kegunaan</h2>
+                <p>
+                    Aplikasi ini bermanfaat untuk membantu petani, perencana acara luar ruangan, atau masyarakat pada umumnya untuk merencanakan kegiatan berdasarkan prediksi cuaca. Dengan informasi yang akurat tentang kemungkinan hujan, pengguna dapat membuat keputusan lebih tepat mengenai aktivitas yang melibatkan cuaca.
+                </p>
+            </div>
+            <div>
+                <h2>Keunggulan</h2>
+                <p>
+                    - Akurasi Tinggi: Menggunakan algoritma machine learning untuk memprediksi curah hujan dengan tingkat akurasi yang tinggi.  
+                    - Sederhana dan Mudah Digunakan: Aplikasi ini memiliki antarmuka yang sederhana sehingga mudah digunakan oleh siapa saja tanpa keahlian teknis.  
+                    - Cepat dan Efisien: Menggunakan model prediksi yang cepat untuk memberikan hasil dalam waktu singkat.  
+                    - Akses Mudah: Dapat diakses oleh siapa saja melalui platform web, yang memungkinkan pengguna mendapatkan prediksi cuaca kapan saja dan di mana saja.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

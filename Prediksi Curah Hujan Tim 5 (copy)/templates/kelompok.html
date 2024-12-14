@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok - Prediksi Curah Hujan</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2c3e50, #34495e); /* Gradasi biru gelap ke abu-abu gelap */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #34495e; /* Warna navbar gelap */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .navbar .title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .navbar a:hover {
+            background: #2c3e50;
+            border-radius: 5px;
+        }
+
+        /* Konten Kelompok */
+        .container {
+            background: #2c3e50; /* Warna latar belakang konten gelap */
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        .team-list {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            display: flex;
+            flex-wrap: wrap; /* Menyusun elemen daftar secara horizontal dan membungkus jika perlu */
+            justify-content: space-evenly; /* Menjaga jarak antara anggota */
+        }
+        .team-list ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .team-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+            max-width: 200px; /* Membatasi lebar untuk setiap anggota */
+            animation: fadeInUp 1s ease-out forwards; /* Animasi masuk */
+        }
+        .team-list img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .team-list .name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Animasi anggota tim */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Memberikan delay berbeda pada tiap anggota untuk efek bergiliran */
+        .team-list li:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        .team-list li:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+        .team-list li:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+        .team-list li:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="title">Prediksi Curah Hujan</div>
+        <div class="links">
+            <a href="/kelompok">Kelompok</a>
+            <a href="/informasi">Informasi</a>
+            <a href="/aplikasi">Aplikasi</a>
+        </div>
+    </div>
+
+    <!-- Content for Kelompok -->
+    <div class="container">
+        <h1>Anggota Kelompok</h1>
+        <p class="text-center">Kami adalah tim yang berkomitmen untuk mengembangkan aplikasi prediksi curah hujan menggunakan machine learning.</p>
+
+        <div class="team-list">
+            <h2>Daftar Anggota:</h2>
+            <ul>
+                <li>
+                    <img src="static/bg.jpg" alt="Muhammad Arief Abean">
+                    <span class="name">Muhammad Arief Abean - Pengembang dan Data Scientist</span>
+                </li>
+                <li>
+                    <img src="path_to_image/renojati.jpg" alt="Muhammad Renojati">
+                    <span class="name">Muhammad Renojati - Pengembang Web</span>
+                </li>
+                <li>
+                    <img src="path_to_image/dimas_aufa.jpg" alt="Dimas Aufa Muhammad Zaki">
+                    <span class="name">Dimas Aufa Muhammad Zaki - Analis Data</span>
+                </li>
+                <li>
+                    <img src="path_to_image/khoirul_lutfi.jpg" alt="Khoirul Lutfi Pratiwi">
+                    <span class="name">Khoirul Lutfi Pratiwi - Analis Data</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

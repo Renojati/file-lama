@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Prediksi Curah Hujan</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #2c3e50, #34495e); /* Gradasi biru gelap ke abu-abu gelap */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            animation: fadeIn 1s ease-in; /* Efek masuk untuk seluruh body */
+        }
+
+        .navbar {
+            background-color: #34495e; /* Navbar gelap */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-out; /* Navbar masuk dari samping */
+        }
+        .navbar .title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .navbar a:hover {
+            background: #2c3e50; /* Hover effect dengan latar belakang gelap */
+            color: #ecf0f1; /* Teks terang saat hover */
+            transform: scale(1.1); /* Efek pembesaran pada hover */
+        }
+
+        .container {
+            background: #2c3e50; /* Latar belakang konten gelap */
+            padding: 2rem;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out; /* Animasi masuk konten */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards; /* Efek fade-in pada judul */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #bdc3c7; /* Warna label lebih terang */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #7f8c8d;
+            border-radius: 5px;
+            background-color: #34495e;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input:focus {
+            background-color: #2980b9; /* Efek perubahan warna saat input difokuskan */
+        }
+
+        .btn {
+            background: linear-gradient(to right, #2980b9, #2c3e50); /* Gradasi biru ke abu-abu gelap */
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #3498db, #2c3e50); /* Hover effect gradasi */
+            transform: scale(1.05); /* Efek pembesaran saat hover */
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #ecf0f1;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards; /* Efek fade-in pada hasil prediksi */
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            background: #34495e;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        #result.success {
+            background-color: #2ecc71; /* Hijau untuk hasil prediksi sukses (tidak hujan) */
+        }
+
+        #result.error {
+            background-color: #e74c3c; /* Merah untuk error atau hujan */
+        }
+
+        #result h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #result p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Animasi untuk body dan navbar */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="title">Prediksi Curah Hujan</div>
+        <div class="links">
+            <a href="/kelompok">Kelompok</a>
+            <a href="/informasi">Informasi</a>
+            <a href="/aplikasi">Aplikasi</a>
+        </div>
+    </div>
+
+    <!-- Content for Aplikasi -->
+    <div class="container">
+        <h1>Prediksi Curah Hujan</h1>
+
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="Tn">Temperatur Minimum (Tn)</label>
+                <input type="number" id="Tn" name="Tn" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Tx">Temperatur Maksimum (Tx)</label>
+                <input type="number" id="Tx" name="Tx" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Tavg">Temperatur Rata-rata (Tavg)</label>
+                <input type="number" id="Tavg" name="Tavg" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="RH_avg">Kelembapan Rata-rata (RH_avg)</label>
+                <input type="number" id="RH_avg" name="RH_avg" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ss">Lama Sinar Matahari (ss)</label>
+                <input type="number" id="ss" name="ss" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ff_avg">Kecepatan Angin Rata-rata (ff_avg)</label>
+                <input type="number" id="ff_avg" name="ff_avg" step="any" required>
+            </div>
+
+            <button type="submit" class="btn">Prediksi Curah Hujan</button>
+        </form>
+
+        <!-- Display Prediction Result -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Script to handle form submission and show the prediction result
+        const form = document.getElementById('predictionForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Convert values to float
+            Object.keys(data).forEach(key => data[key] = parseFloat(data[key]));
+
+            try {
+                // Send POST request to the Flask API
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // Handle response
+                const result = await response.json();
+                if (result.success) {
+                    resultDiv.textContent = `Prediksi: ${result.prediction}`;
+                    resultDiv.classList.add('success');
+                    resultDiv.classList.remove('error');
+                } else {
+                    resultDiv.textContent = `Error: ${result.error}`;
+                    resultDiv.classList.add('error');
+                    resultDiv.classList.remove('success');
+                }
+            } catch (error) {
+                resultDiv.textContent = `Error: ${error.message}`;
+                resultDiv.classList.add('error');
+                resultDiv.classList.remove('success');
+            }
+        });
+    </script>
+
+</body>
+</html>
